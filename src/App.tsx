@@ -267,9 +267,7 @@ function App() {
     <Routes>
       <Route path="/" element={
         <>
-          <div className="min-h-screen bg-white relative overflow-x-hidden">
-            {/* Rest of your component code */}
-          </div>
+          {/* Rest of your component code */}
         </>
       } />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
