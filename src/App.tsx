@@ -39,6 +39,7 @@ function App() {
   privacy: boolean;
   terms: boolean;
   returnPolicy: boolean;
+  ehr: boolean;
   [key: string]: boolean;
 }>({
   hero: false,
@@ -50,6 +51,7 @@ function App() {
   privacy: false,
   terms: false,
   returnPolicy: false,
+  ehr: false,
 });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [typewriterText, setTypewriterText] = useState('');
@@ -714,6 +716,211 @@ const particlesRef = useRef<Particle[]>([]);
         </div>
       </section>
 
+      {/* AI-First EHR Section */}
+      <section id="ehr" className="py-12 sm:py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Floating geometric shapes */}
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-indigo-400/10 to-cyan-400/10 rounded-full blur-2xl animate-pulse delay-500"></div>
+          
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="grid grid-cols-12 gap-4 h-full">
+              {[...Array(144)].map((_, i) => (
+                <div
+                  key={i}
+                  className="bg-white/5 rounded animate-pulse"
+                  style={{
+                    animationDelay: `${(i * 50) % 3000}ms`,
+                    animationDuration: `${2000 + (i % 1000)}ms`
+                  }}
+                ></div>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Content Side */}
+            <div 
+              className={`transition-all duration-1000 ${
+                isVisible.ehr ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+            >
+              <div className="mb-6">
+                <span className="inline-block px-4 py-2 bg-gradient-to-r from-cyan-100 to-purple-100 text-purple-700 rounded-full text-sm font-semibold animate-bounce">
+                  🚀 Launching Soon - Completely FREE
+                </span>
+              </div>
+              
+              <h2 className="text-5xl font-bold text-white mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
+                  AI-First EHR
+                </span>
+                <br />
+                <span className="text-white">
+                  World-Class Features
+                </span>
+              </h2>
+              
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                Experience the future of healthcare management with our comprehensive Electronic Health Records system. 
+                Powered by artificial intelligence and designed for hospitals and clinics of all sizes.
+              </p>
+              
+              <div className="space-y-6 mb-8">
+                {[
+                  { 
+                    icon: "🤖", 
+                    title: "AI-Powered Automation", 
+                    description: "Intelligent workflow automation that learns and adapts to your hospital's unique processes"
+                  },
+                  { 
+                    icon: "🏥", 
+                    title: "Complete Hospital Management", 
+                    description: "From patient registration to discharge - manage every aspect of your healthcare facility"
+                  },
+                  { 
+                    icon: "📊", 
+                    title: "Real-Time Analytics", 
+                    description: "Advanced reporting and insights to optimize operations and improve patient outcomes"
+                  },
+                  { 
+                    icon: "🔒", 
+                    title: "Enterprise Security", 
+                    description: "HIPAA-compliant with military-grade encryption and comprehensive audit trails"
+                  }
+                ].map((feature, index) => (
+                  <div 
+                    key={index}
+                    className="flex items-start space-x-4 group cursor-pointer"
+                    style={{ animationDelay: `${index * 200}ms` }}
+                  >
+                    <div className="text-3xl group-hover:scale-125 transition-transform duration-300">
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                        {feature.title}
+                      </h4>
+                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-semibold overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105"
+                >
+                  <span className="relative z-10 flex items-center justify-center">
+                    Get Early Access - FREE
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </button>
+                
+                <button className="group relative border-2 border-cyan-400 text-cyan-400 px-8 py-4 rounded-xl text-lg font-semibold overflow-hidden transition-all duration-500 hover:shadow-xl hover:scale-105">
+                  <span className="relative z-10">Watch Demo</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <span className="absolute inset-0 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center font-semibold">
+                    Watch Demo
+                  </span>
+                </button>
+              </div>
+            </div>
+            
+            {/* Interactive EHR Dashboard Preview */}
+            <div 
+              className={`relative transition-all duration-1000 ${
+                isVisible.ehr ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+              }`}
+            >
+              <div className="relative bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl">
+                {/* Dashboard Header */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
+                    <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse delay-200"></div>
+                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse delay-400"></div>
+                  </div>
+                  <span className="text-white/80 text-sm font-medium">MediKloud EHR Dashboard</span>
+                </div>
+                
+                {/* Dashboard Content */}
+                <div className="space-y-4">
+                  {/* Patient Stats */}
+                  <div className="grid grid-cols-3 gap-4">
+                    {[
+                      { label: "Active Patients", value: "1,247", color: "from-cyan-500 to-blue-500" },
+                      { label: "Today's Visits", value: "89", color: "from-purple-500 to-pink-500" },
+                      { label: "Pending Labs", value: "23", color: "from-green-500 to-teal-500" }
+                    ].map((stat, index) => (
+                      <div 
+                        key={index}
+                        className="bg-white/10 p-3 rounded-xl border border-white/20 group hover:bg-white/20 transition-all duration-300"
+                        style={{ animationDelay: `${index * 300}ms` }}
+                      >
+                        <div className={`text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r ${stat.color} group-hover:scale-110 transition-transform duration-300`}>
+                          {stat.value}
+                        </div>
+                        <div className="text-white/70 text-xs">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Recent Activity */}
+                  <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                    <h4 className="text-white font-semibold mb-3 flex items-center">
+                      <Activity className="w-4 h-4 mr-2 text-cyan-400" />
+                      Recent Activity
+                    </h4>
+                    <div className="space-y-2">
+                      {[
+                        { time: "2 min ago", action: "New patient registered", status: "success" },
+                        { time: "5 min ago", action: "Lab results uploaded", status: "info" },
+                        { time: "12 min ago", action: "Prescription generated", status: "warning" }
+                      ].map((activity, index) => (
+                        <div 
+                          key={index}
+                          className="flex items-center justify-between text-sm group hover:bg-white/5 p-2 rounded transition-all duration-300"
+                          style={{ animationDelay: `${(index + 3) * 200}ms` }}
+                        >
+                          <span className="text-white/80 group-hover:text-white transition-colors duration-300">
+                            {activity.action}
+                          </span>
+                          <span className="text-white/60 text-xs">{activity.time}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* AI Insights */}
+                  <div className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 p-4 rounded-xl border border-cyan-400/30">
+                    <h4 className="text-white font-semibold mb-2 flex items-center">
+                      <Bot className="w-4 h-4 mr-2 text-cyan-400 animate-pulse" />
+                      AI Insights
+                    </h4>
+                    <p className="text-white/80 text-sm">
+                      "Patient flow is 15% higher than usual. Consider opening additional consultation rooms."
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Floating elements around dashboard */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-ping opacity-75"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-ping opacity-75 delay-1000"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Additional Services */}
       <section id="Services" className="py-12 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50"></div>
