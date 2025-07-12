@@ -1166,8 +1166,7 @@ const formData = new FormData(form);
 
     <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
       <p className="hover:text-gray-900 transition-colors duration-300">
-        &copy; 2025 MediKloud. Transforming Healthcare Delivery. | <a href="/privacy-policy" className="text-cyan-400 hover:underline">Privacy Policy</a> | <a href="/terms" className=\"text-cyan-400 hover:underline">Terms of Service</a>
-      </p>
+        &copy; 2025 MediKloud. Transforming Healthcare Delivery. | <a href="/privacy-policy" className="text-cyan-400 hover:underline">Privacy Policy</a> | <a href="/terms" className="text-cyan-400 hover:underline">Terms of Service</a>
     </div>
   </div>
 </footer>
