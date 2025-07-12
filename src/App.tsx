@@ -266,12 +266,178 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={
-        <>
-          {/* Rest of your component code */}
-        </>
+        <div className="min-h-screen bg-white relative overflow-x-hidden">
+          {/* Navigation */}
+          <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center h-20">
+                <div className="flex items-center">
+                  <img
+                    src="/New_Logo_MK.png"
+                    alt="MediKloud Logo"
+                    className="h-8 sm:h-10 md:h-12 w-auto"
+                  />
+                </div>
+                
+                {/* Desktop Navigation */}
+                <div className="hidden md:flex items-center space-x-8">
+                  <button 
+                    onClick={() => scrollToSection('hero')}
+                    className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
+                  >
+                    Home
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('Services')}
+                    className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
+                  >
+                    Services
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('ehr')}
+                    className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
+                  >
+                    EHR System
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('about')}
+                    className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
+                  >
+                    About
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  >
+                    Contact Us
+                  </button>
+                </div>
+
+                {/* Mobile menu button */}
+                <div className="md:hidden">
+                  <button
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+                  >
+                    {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Navigation Menu */}
+            {isMenuOpen && (
+              <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+                <div className="px-4 py-6 space-y-4">
+                  <button 
+                    onClick={() => scrollToSection('hero')}
+                    className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium py-2"
+                  >
+                    Home
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('Services')}
+                    className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium py-2"
+                  >
+                    Services
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('ehr')}
+                    className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium py-2"
+                  >
+                    EHR System
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('about')}
+                    className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium py-2"
+                  >
+                    About
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className="block w-full text-left bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 mt-4"
+                  >
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+            )}
+          </nav>
+
+          {/* Hero Section */}
+          <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-600/5"></div>
+            
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <div className={`transition-all duration-1000 ${isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                  Revolutionizing
+                  <span className="block bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                    {typewriterText}
+                    <span className="animate-pulse">|</span>
+                  </span>
+                </h1>
+                
+                <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                  AI-powered hospital pharmacies, instant medicine delivery, and cutting-edge healthcare technology
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <button 
+                    onClick={() => scrollToSection('Services')}
+                    className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                  >
+                    Explore Our Solutions
+                    <ArrowRight className="inline-block ml-2 h-5 w-5" />
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105"
+                  >
+                    Get Started Today
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Stats Section */}
+          <section id="stats" className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {visionStats.map((stat, index) => {
+                  const IconComponent = stat.icon;
+                  return (
+                    <div 
+                      key={index}
+                      className={`text-center transform transition-all duration-700 ${
+                        isVisible.stats ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                      }`}
+                      style={{ transitionDelay: `${index * 200}ms` }}
+                    >
+                      <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${stat.color} mb-4 transform hover:scale-110 transition-transform duration-300`}>
+                        <IconComponent className="h-8 w-8 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{stat.number}</h3>
+                      <p className="text-gray-600">{stat.label}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* Test Section */}
+          <section className="py-20 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Welcome to MediKloud</h2>
+              <p className="text-xl text-gray-600">Your healthcare technology partner</p>
+            </div>
+          </section>
+        </div>
       } />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/terms\" element={<TermsOfService />} />
+      <Route path="/terms" element={<TermsOfService />} />
     </Routes>
   );
 }
